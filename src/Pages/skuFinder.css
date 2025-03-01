@@ -1,0 +1,429 @@
+/***************************************************
+ * findSQU CSS — exclusive to SkuFinder component
+ ***************************************************/
+
+/* Keyframes for item-by-item fade-in (slide up) */
+@keyframes sfFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Container for the entire SKU Finder page */
+.sku-finder-container {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  padding-bottom: 60px; /* so it doesn't hide behind bottom bar */
+  position: relative;
+}
+
+/* Top Header */
+.sf-top-header-div {
+  background: linear-gradient(217.95deg, #d40000 1.05%, #6e0000 98.95%);
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.sf-fade-in {
+  animation: sfFadeInAnimation 0.5s ease-in;
+}
+@keyframes sfFadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.sf-mainmenu-heading {
+  color: white;
+  margin: 0;
+  font-size: 24px;
+  line-height: 60px; /* vertically center */
+  padding-left: 25px;
+}
+.sf-navbar {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 20px;
+}
+.sf-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.sf-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+}
+.sf-nav-icon {
+  font-size: 20px;
+}
+
+/* Search Section */
+.sf-search-section {
+  margin-top: 60px;
+  padding: 20px;
+  position: relative;
+}
+.sf-search-bar-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  padding: 12px; /* increased to give the search bar more room */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+.sf-search-icon {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.sf-search-bar {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Filter Section */
+.sf-filter-section {
+  margin-top: 20px; /* extra space so filters don't crowd the search bar */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 20px;
+}
+.sf-filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.sf-filter-label {
+  font-weight: bold;
+  font-size: 14px;
+}
+.sf-sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.sf-filter-combobox {
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 13px;
+}
+.sf-sort-toggle {
+  border: none;
+  background: #d40000;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.sf-sort-toggle:hover {
+  background: #6e0000;
+}
+.sf-filter-checkboxes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.sf-label-text {
+  font-size: 14px;
+}
+.sf-clear-text {
+  font-size: 14px;
+  color: #d40000;
+  cursor: pointer;
+  font-weight: 500;
+}
+.sf-clear-text:hover {
+  text-decoration: underline;
+}
+
+/* Items found to the right */
+.sf-items-found {
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* Loading Spinner (placeholder) */
+.sf-loading-spinner {
+  margin-top: 20px;
+  text-align: center;
+}
+.sf-loading-spinner::after {
+  content: 'Loading...';
+  font-size: 14px;
+  color: #666;
+}
+
+/* Search results grid */
+.sf-search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 10px 20px 80px;
+  margin-top: 10px;
+}
+
+/* Each item card */
+.sf-search-item {
+  position: relative;
+  background: linear-gradient(217.95deg, #6e0000 1.05%, #d40000 98.95%);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 280px;
+  font-weight: normal;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: sfFadeInUp 0.5s ease forwards;
+}
+.sf-selected-card {
+  background: #0275d8 !important;
+}
+/* item-by-item delay */
+.sf-search-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.sf-search-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.sf-search-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.sf-search-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.sf-search-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.sf-search-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.sf-search-item:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.sf-search-item:nth-child(8) {
+  animation-delay: 0.4s;
+}
+/* (Add more if you expect more items) */
+
+/* LastmodifiedDate */
+.sf-item-LastmodifiedDate {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* Title and pack */
+.sf-item-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.sf-item-pack {
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: normal;
+}
+
+/* Image preview */
+.sf-sku-image-preview {
+  width: 120px;
+  height: 120px;
+  margin: 10px auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.sf-SKUimage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Table inside each card */
+.sf-sku-table {
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid #999;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.sf-sku-table th,
+.sf-sku-table td {
+  border: 1px solid #999;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+.sf-sku-table th {
+  background: #333;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Price layout container */
+.sf-price-lists-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sf-price-list-field.sf-view-mode {
+  display: block;
+}
+
+/* No SKUs found message */
+.sf-no-skus-message {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  grid-column: 1 / -1;
+  margin-top: 20px;
+}
+
+/* Bottom bar */
+.sf-mainmenu-bottom {
+  background: linear-gradient(90.13deg, rgba(154, 28, 28, 0.89) 0.11%, #8b0304 99.89%);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 1000;
+}
+.sf-bottom-madeby {
+  color: #f4f4f4;
+  font-size: 10px;
+  text-align: right;
+  padding: 10px;
+  opacity: 50%;
+}
+
+/* Modals */
+.sf-info-modal-overlay,
+.sf-error-modal-overlay,
+.sf-progress-modal-overlay,
+.sf-image-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  overflow: hidden; /* block scrolling behind modal */
+}
+.sf-info-modal-content,
+.sf-error-modal-content,
+.sf-progress-modal-content,
+.sf-image-modal-content {
+  background: linear-gradient(217.95deg, #6e0000 1.05%, #d40000 98.95%);
+  color: #fff;
+  width: 400px;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.sf-image-modal-content {
+  width: 600px;
+  max-height: 80vh;
+  overflow: auto;
+  padding: 20px;
+}
+.sf-close-modal-button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.sf-close-modal-button:hover {
+  background: #cc0000;
+}
+.sf-modal-image {
+  width: auto;
+  height: auto;
+}
+.sf-modal-image-normal {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: zoom-in;
+}
+.sf-modal-image-zoomed {
+  cursor: zoom-out;
+}
+
+/* Progress bar styles */
+.sf-progress-bar-container {
+  width: 100%;
+  background-color: #ccc;
+  border-radius: 5px;
+  height: 20px;
+  margin-top: 20px;
+}
+.sf-progress-bar-fill {
+  height: 20px;
+  background-color: #00cc44;
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* Custom right-click context menu */
+.sf-context-menu {
+  position: absolute;
+  z-index: 3000;
+  background: linear-gradient(217.95deg, #6e0000 1.05%, #d40000 98.95%);
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 150px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  /* We'll override the top/left dynamically in JSX */
+}
+.sf-context-menu-item {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
+.sf-context-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

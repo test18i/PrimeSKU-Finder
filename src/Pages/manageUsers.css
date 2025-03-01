@@ -1,0 +1,450 @@
+/*******************************************************
+ * manageUsers.css — exclusive to ManageUsers component
+ *******************************************************/
+
+/* Keyframes for item-by-item fade-in */
+@keyframes muFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Prevent scrolling when modals are open */
+.mu-modal-open {
+  overflow: hidden !important;
+}
+
+/* Container for entire page */
+.mu-container {
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f4f4;
+  padding-bottom: 60px; /* space for bottom bar */
+  position: relative;
+}
+
+/* Top header / nav */
+.mu-top-header {
+  background: linear-gradient(217.95deg, #d40000 1.05%, #6e0000 98.95%);
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.mu-fade-in {
+  animation: muFadeInAnimation 0.5s ease-in;
+}
+@keyframes muFadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.mu-heading {
+  color: white;
+  margin: 0;
+  font-size: 24px;
+  line-height: 60px; /* vertically center */
+  padding-left: 25px;
+}
+.mu-navbar {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 20px;
+}
+.mu-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.mu-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+}
+.mu-nav-icon {
+  font-size: 20px;
+}
+/* Search section */
+.mu-search-section {
+  margin-top: 60px;
+  padding: 20px;
+  position: relative;
+}
+.mu-search-bar-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+.mu-search-icon {
+  margin-left: 5px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.mu-search-bar {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+.mu-search-button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  background: #d40000;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 8px;
+}
+.mu-search-button:hover {
+  background: #6e0000;
+}
+.mu-items-found {
+  float: right;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-right: 20px;
+}
+
+/* Add user floating button */
+.mu-add-button-container {
+  position: relative;
+}
+.mu-add-button {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  background: #d40000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 9999;
+}
+.mu-add-button:hover {
+  background: #6e0000;
+}
+.mu-add-icon {
+  font-size: 18px;
+}
+
+/* Grid of users */
+.mu-results-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 10px 20px 80px; /* extra bottom padding */
+  margin-top: 20px;
+}
+.mu-no-users-message {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  grid-column: 1 / -1;
+  margin-top: 20px;
+}
+
+/* Each user card */
+.mu-user-card {
+  background: linear-gradient(217.95deg, #6e0000 1.05%, #d40000 98.95%);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 220px;
+  font-weight: normal;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: muFadeInUp 0.5s ease forwards;
+  position: relative;
+}
+.mu-user-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.mu-user-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.mu-user-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.mu-user-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.mu-user-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.mu-user-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.mu-user-card:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.mu-user-card:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.mu-selected-card {
+  background: #0275d8 !important;
+}
+
+/* New user highlight */
+.mu-new-user-card {
+  border: 3px solid #ffdd00;
+}
+
+/* We remove the priceListAccess-based classes entirely */
+
+/* A small container for the role icon at the top */
+.mu-role-icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+/* Table inside each user card */
+.mu-inner-table {
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid #999;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.mu-inner-table thead th {
+  border: 1px solid #999;
+  padding: 6px;
+  background: #333;
+  color: #fff;
+  font-weight: bold;
+}
+.mu-inner-table td {
+  border: 1px solid #999;
+  padding: 6px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Editing fields */
+.mu-edit-input,
+.mu-edit-select {
+  font-size: 14px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  /* limit the width so layout won't jump */
+  max-width: 100px;
+  margin-top: 2px;
+}
+.mu-error-icon {
+  color: red;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.mu-highlight {
+  border: 2px solid red !important;
+}
+.mu-current-password-info {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 3px;
+}
+
+/* Save row inside editing */
+.mu-save-row {
+  margin-top: 10px;
+  text-align: center;
+}
+.mu-save-button {
+  background: white;
+  color: #d40000;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 5px;
+}
+.mu-save-button:hover {
+  background: #f4f4f4;
+}
+.mu-delete-user-btn {
+  background-color: #fff2f2;
+  color: #d40000;
+}
+.mu-delete-user-btn:hover {
+  background-color: #ffdcdc;
+}
+
+/* Context menu */
+.mu-context-menu {
+  position: absolute;
+  z-index: 3000;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.mu-context-menu-button {
+  display: block;
+  width: 100%;
+  background: #d40000;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  text-align: left;
+  border-radius: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.mu-context-menu-button:hover {
+  background: #6e0000;
+}
+
+/* Overlays and modals */
+.mu-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.mu-modal-content {
+  background: linear-gradient(217.95deg, #6e0000 1.05%, #d40000 98.95%);
+  color: #fff;
+  width: 400px;
+  border-radius: 10px;
+  padding: 20px 30px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.mu-modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 15px; /* spacing */
+  font-size: 20px;
+}
+.mu-modal-content-body {
+  margin-bottom: 20px; /* extra spacing before buttons */
+}
+.mu-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.mu-modal-button-icon {
+  margin-right: 5px;
+}
+
+/* Buttons inside modals */
+.mu-delete-confirm-button,
+.mu-delete-cancel-button {
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+}
+.mu-delete-confirm-button {
+  background-color: #d40000;
+  color: white;
+}
+.mu-delete-confirm-button:hover {
+  background-color: #6e0000;
+}
+.mu-delete-cancel-button {
+  background-color: white;
+  color: #d40000;
+  border: 1px solid #d40000;
+}
+.mu-delete-cancel-button:hover {
+  background-color: #f4f4f4;
+}
+
+/* Info Modal extras */
+.mu-notification-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.mu-notification-table td {
+  border: none;
+  padding: 6px 10px;
+  text-align: left;
+  color: #fff;
+}
+.mu-modal-header-icon {
+  margin-right: 5px;
+}
+
+/* Progress Modal */
+.mu-progress-bar-container {
+  width: 100%;
+  background-color: #ccc;
+  border-radius: 5px;
+  height: 20px;
+}
+.mu-progress-bar-fill {
+  height: 20px;
+  background-color: #00cc44;
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* Bottom bar */
+.mu-bottom-bar {
+  background: linear-gradient(90.13deg, rgba(154, 28, 28, 0.89) 0.11%, #8b0304 99.89%);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 1000;
+}
+.mu-bottom-madeby {
+  color: #f4f4f4;
+  font-size: 10px;
+  text-align: right;
+  padding: 10px;
+  opacity: 50%;
+}

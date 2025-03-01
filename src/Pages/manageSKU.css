@@ -1,0 +1,568 @@
+/***********************************************
+ * managesku.css — exclusive to ManageSKU component
+ ***********************************************/
+
+/* Keyframes for item-by-item fade-in (slide up) */
+@keyframes msFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Prevent scrolling when modals are open */
+.ms-modal-open {
+  overflow: hidden !important;
+}
+
+/* Container for entire page */
+.manage-sku-container {
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f4f4;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+/* Top header */
+.ms-top-header-div {
+  background: linear-gradient(217.95deg, #d40000 1.05%, #6e0000 98.95%);
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.ms-fade-in {
+  animation: msFadeInAnimation 0.5s ease-in;
+}
+@keyframes msFadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.ms-mainmenu-heading {
+  color: white;
+  margin: 0;
+  font-size: 24px;
+  line-height: 60px; /* vertically center */
+  padding-left: 25px;
+}
+.ms-navbar {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 20px;
+}
+.ms-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+.ms-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+}
+.ms-nav-icon {
+  font-size: 20px;
+}
+
+/* Search section */
+.ms-search-section {
+  margin-top: 60px;
+  padding: 20px;
+  position: relative;
+}
+.ms-search-bar-wrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+.ms-search-icon {
+  margin-left: 5px;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.ms-search-bar {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+.ms-search-button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  background: #d40000;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 8px;
+}
+.ms-search-button:hover {
+  background: #6e0000;
+}
+.ms-items-found {
+  float: right;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-right: 20px;
+}
+
+/* Add SKU button */
+.ms-add-sku-button-container {
+  position: relative;
+}
+.ms-add-sku-button {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  background: #d40000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 9999;
+}
+.ms-add-sku-button:hover {
+  background: #6e0000;
+}
+.ms-add-icon {
+  font-size: 18px;
+}
+
+/* Search results grid */
+.ms-search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 10px 20px 80px;
+  margin-top: 20px;
+}
+.ms-no-skus-message {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  grid-column: 1 / -1;
+  margin-top: 20px;
+}
+
+/* SKU card */
+.ms-search-item {
+  background: linear-gradient(217.95deg, #6e0000 1.05%, #d40000 98.95%);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 280px;
+  font-weight: normal;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: msFadeInUp 0.5s ease forwards;
+  position: relative;
+}
+.ms-search-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.ms-search-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.ms-search-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.ms-search-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.ms-search-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.ms-search-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.ms-search-item:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.ms-search-item:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.ms-new-sku-card {
+  border: 3px solid #ffdd00;
+}
+.ms-selected-card {
+  background: #0275d8 !important;
+}
+
+/* Last Modified label row */
+.ms-modified-time-row {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.ms-clock-icon {
+  margin-right: 5px;
+  font-size: 14px;
+}
+.ms-mod-time-text {
+  opacity: 0.85;
+}
+
+/* SKU table */
+.ms-sku-table {
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid #999;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.ms-sku-table thead tr th {
+  border: 1px solid #999;
+  padding: 5px;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+.ms-sku-table td {
+  border: 1px solid #999;
+  padding: 5px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Price layout container */
+.ms-price-lists-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ms-price-list-field {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.ms-price-label {
+  font-weight: normal;
+}
+.ms-yellow-price {
+  background: #fffadc;
+}
+.ms-center-price {
+  justify-content: center;
+}
+
+/* Image preview */
+.ms-sku-image-preview {
+  width: 120px;
+  height: 120px;
+  margin: 10px auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.ms-sku-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Editing */
+.ms-edit-input {
+  font-size: 13px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 80%;
+  text-align: center;
+}
+.ms-custom-select {
+  font-size: 13px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 80%;
+}
+.ms-no-arrows {
+  -moz-appearance: textfield;
+}
+
+/* Errors */
+.ms-error-icon {
+  color: red;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.ms-highlight {
+  border: 2px solid red !important;
+}
+
+/* Save row */
+.ms-add-sku-save-row {
+  text-align: center;
+  margin-top: 8px;
+}
+.ms-new-sku-save-button {
+  background: white;
+  color: #d40000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+.ms-new-sku-save-button:hover {
+  background: #f4f4f4;
+}
+
+/* Hidden file input */
+.ms-hidden-file-input {
+  display: none;
+}
+.ms-sku-image-icons-container {
+  display: flex;
+  gap: 10px;
+}
+.ms-file-error-message {
+  color: yellow;
+  margin-top: 4px;
+}
+
+/* Context menu */
+.ms-custom-context-menu {
+  position: absolute;
+  z-index: 3000;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.ms-context-menu-button {
+  display: block;
+  width: 100%;
+  background: #d40000;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  text-align: left;
+  border-radius: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.ms-context-menu-button:hover {
+  background: #6e0000;
+}
+
+/* Overlays and modals */
+.ms-modal-overlay,
+.ms-loading-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.ms-modal-content,
+.ms-loading-modal-content {
+  background: linear-gradient(217.95deg, #6e0000 1.05%, #d40000 98.95%);
+  color: #fff;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+  text-align: center;
+}
+.ms-modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 15px; /* spacing between h2 and content */
+  font-size: 20px;
+}
+/* Body content inside the modal */
+.ms-modal-content-body {
+  margin-bottom: 20px; /* extra spacing before buttons */
+}
+.ms-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.ms-modal-button-icon {
+  margin-right: 5px;
+}
+
+/* Buttons inside modals */
+.ms-delete-confirm-button,
+.ms-delete-cancel-button,
+.ms-close-modal-button,
+.ms-import-confirm-button,
+.ms-import-cancel-button {
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+}
+.ms-delete-confirm-button,
+.ms-import-confirm-button {
+  background-color: #d40000;
+  color: white;
+}
+.ms-delete-confirm-button:hover,
+.ms-import-confirm-button:hover {
+  background-color: #6e0000;
+}
+.ms-delete-cancel-button,
+.ms-import-cancel-button {
+  background-color: white;
+  color: #d40000;
+  border: 1px solid #d40000;
+}
+.ms-delete-cancel-button:hover,
+.ms-import-cancel-button:hover {
+  background-color: #f4f4f4;
+}
+.ms-close-modal-button {
+  background-color: #ff4d4d;
+  color: #fff;
+  margin-top: 5px;
+}
+.ms-close-modal-button:hover {
+  background-color: #cc0000;
+}
+
+/* Info table for import or other data */
+.ms-info-table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  color: #fff;
+  font-size: 14px;
+}
+.ms-info-table td {
+  padding: 6px;
+  border: none;
+  text-align: left;
+}
+
+/* Loading modal */
+.ms-loading-modal-content {
+  width: 300px;
+  padding: 30px;
+}
+
+/* Image modal */
+.ms-modal-image {
+  width: auto;
+  height: auto;
+}
+.ms-modal-image-normal {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: zoom-in;
+}
+.ms-modal-image-zoomed {
+  cursor: zoom-out;
+}
+
+/* Progress bar */
+.ms-progress-bar-container {
+  width: 100%;
+  background-color: #ccc;
+  border-radius: 5px;
+  height: 20px;
+}
+.ms-progress-bar-fill {
+  height: 20px;
+  background-color: #00cc44;
+  border-radius: 5px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* Import/Export modal layout */
+.ms-import-export-modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.ms-export-btn,
+.ms-template-btn,
+.ms-upload-btn,
+.ms-delete-all-btn {
+  background: white;
+  color: #d40000;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+.ms-export-btn:hover,
+.ms-template-btn:hover,
+.ms-upload-btn:hover,
+.ms-delete-all-btn:hover {
+  background: #f4f4f4;
+}
+
+/* Bottom bar */
+.ms-mainmenu-bottom {
+  background: linear-gradient(90.13deg, rgba(154, 28, 28, 0.89) 0.11%, #8b0304 99.89%);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 1000;
+}
+.ms-bottom-madeby {
+  color: #f4f4f4;
+  font-size: 10px;
+  text-align: right;
+  padding: 10px;
+  opacity: 50%;
+}

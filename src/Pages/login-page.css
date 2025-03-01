@@ -1,0 +1,259 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 
+  2) Only remove the scrollbar within this special container.
+     We'll still allow scrolling if content overflows, 
+     but the scrollbar itself is hidden. 
+*/
+.login-page-container {
+  /* Take up full viewport height so we can control scrolling within */
+  height: 100vh; 
+  overflow-y: auto;
+
+  /* Hide scrollbar on WebKit browsers */
+  -ms-overflow-style: none;  /* IE, Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.login-page-container::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari */
+}
+
+body {
+  /* Note: We keep the body's defaults so other pages are unaffected */
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  /* DO NOT set overflow here, so it doesn't affect other pages. */
+}
+
+/* Heading Animation: Slide Down */
+.heading-h1 {
+  margin-top: 30px;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  color: #D30101;
+  opacity: 0;
+  animation: slideDown 1s forwards;
+}
+
+/* Main Container (Transparent) */
+.container-div {
+  position: fixed;
+  top: 120px;
+  left: 300px;
+  right: 300px;
+  bottom: 40px;
+  background: transparent;  /* Fully transparent container */
+  overflow: hidden;
+  display: flex;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.5s;
+}
+
+/* Left Panel – Login Form (Slide In from Left) */
+.containerLeft-div {
+  width: 60%;
+  background: linear-gradient(217.95deg, #D40000 1.05%, #6E0000 98.95%);
+  border-radius: 10px 0 0 10px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: slideInLeft 1s forwards;
+  animation-delay: 1s;
+}
+
+.login-Label-h1 {
+  font-size: 32px;
+  color: white;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 1.2s;
+}
+
+/* Right Panel – Logo Display (Slide In from Right) */
+.containerRight-div {
+  width: 40%;
+  background: white;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: slideInRight 1s forwards;
+  animation-delay: 1s;
+}
+
+.logo-img {
+  max-width: 180px;
+  width: 100%;
+}
+
+/* Bottom Div (Behind Content) */
+.bottom-div {
+  background: linear-gradient(90.13deg, rgba(154,28,28,0.89) 0.11%, #8B0304 99.89%);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: -1;
+}
+
+/* Text Field Container (Fade Up) */
+.text-field-container {
+  width: 80%;
+  margin: 15px auto;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards;
+}
+
+.user-icon, .password-icon {
+  font-size: 20px;
+  color: white;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* Input Fields */
+.animated-input {
+  flex: 1;
+  font-size: 14px;
+  padding: 8px;
+  border: 2px solid #8B0304;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.animated-input:focus {
+  border-color: #D30101;
+  background-color: white;
+}
+
+/* Error Message (Reserved Space) */
+.error-text {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  min-height: 20px;
+}
+
+/* Button (Fade Up) */
+.animated-button {
+  margin: 30px auto 0;
+  padding: 10px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(180deg, #D30101 0%, #740101 100%);
+  color: white;
+  border: 2px solid #8B0304;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 1.5s;
+}
+
+.animated-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.animated-button:active {
+  transform: scale(0.98);
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* Keyframes Animations */
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .container-div {
+    left: 50px;
+    right: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-div {
+    flex-direction: column;
+    left: 20px;
+    right: 20px;
+    top: 100px;
+  }
+  .containerLeft-div, .containerRight-div {
+    width: 100%;
+    border-radius: 0;
+    animation: none;
+    opacity: 1;
+  }
+  .containerLeft-div {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-div {
+    left: 10px;
+    right: 10px;
+  }
+  .heading-h1 {
+    font-size: 28px;
+  }
+  .login-Label-h1 {
+    font-size: 24px;
+  }
+  .animated-button {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+  .animated-input {
+    font-size: 14px;
+    padding: 6px;
+  }
+}
