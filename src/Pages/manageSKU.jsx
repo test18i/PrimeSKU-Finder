@@ -20,7 +20,7 @@ import {
   FaUtensils,
   FaShoppingCart
 } from 'react-icons/fa';
-import './managesku.css';
+import './manageSKU.css';
 import { useNavigate } from 'react-router-dom';
 
 const PLACEHOLDER_IMAGE = 'https://placehold.co/120x120?text=No+Image';
